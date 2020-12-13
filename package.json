@@ -1,0 +1,26 @@
+{
+  "name": "irla-andrade-vacina-em-dia",
+  "version": "1.0.0",
+  "description": "API de um cartão de vacina virtual para projeto final da reprograma",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./server.js",
+    "start": "node ./server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Irla Andrade",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.18",
+    "yup": "^0.31.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
