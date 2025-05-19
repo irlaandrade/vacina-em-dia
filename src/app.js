@@ -15,12 +15,7 @@ const login = require('./routes/login')
 const app = express()
 app.use(cors())
 
-mongoose.connect(`${process.env.DATABASE}`, {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-  })
+mongoose.connect(`${process.env.DATABASE}`)
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))

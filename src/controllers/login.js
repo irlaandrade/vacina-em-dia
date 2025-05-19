@@ -6,11 +6,20 @@ function checkPassword(passwordEntry, password) {
   return bcrypt.compareSync(passwordEntry, password)
 }
 
+/**
+ * Gera um token de acesso para o admin caso o e-mail e senha estejam corretos.
+ * @param {Object} req - Requisição HTTP contendo email e password no body.
+ * @param {Object} res - Resposta HTTP.
+ * @returns {Object} Retorna o admin e o token JWT, ou erro 401 se não autorizado.
+ */
 exports.accessToken = (req, res) => {
   try {
     const { email, password: passwordEntry } = req.body
     Admin.findOne({ email: email })
       .then((admin) => {
+        if (!admin) {
+          return res.status(401).json({ error: `Administrador não encontrado.` })
+        }
         const { id, email, password } = admin
         if (!checkPassword(passwordEntry, password)) {
           return res.status(401).json({ error: `Senha não corresponde.` })
